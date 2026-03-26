@@ -299,24 +299,32 @@
         let y = map(k.y, 0, 480, 0, height) + gy;
 
         push();
-        // 切換到 HSB 模式來做全光譜漸變
+        // 切換到 HSB 模式。把飽和度和亮度拉滿，確保顯色。
         colorMode(HSB, 360, 100, 100, 1);
 
-        let baseH = hue(mainColor);
-        // 平均分佈在 360 度的色相環上，讓每個節點差異最大化
-        let currentHue = (baseH + map(i, 0, hand.keypoints.length, 0, 360) + frameCount * 1.5) % 360;
+        // 利用較大的黃金比例角度加上時間，讓每個相鄰節點的顏色差異達到最大，完全跳脫背景
+        let currentHue = (i * 137.5 + frameCount * 1.5) % 360;
 
         noStroke();
-        // 加大發光半徑與漸層層次
-        let glowRadius = 22 + sin(frameCount * 5 + i * 20) * 5;
+        // 1. 強烈的外圈光暈 (更亮、更飽和)
+        let glowRadius = 26 + sin(frameCount * 5 + i * 20) * 4;
         for (let r = glowRadius; r > 0; r -= 4) {
-          let alpha = map(r, 0, glowRadius, 1, 0) * 0.6;
-          fill(currentHue, 85, 100, alpha);
+          // 增強透明度權重，讓發光更實體化
+          let alpha = map(r, 0, glowRadius, 1, 0) * 0.9;
+          fill(currentHue, 100, 100, alpha);
           circle(x, y, r);
         }
 
-        // 星芒核心也跟著調整
-        fill(0, 0, 100, 0.95);
+        // 2. 實心高彩度圓形底盤 (確保顏色絕對不被背景吃掉)
+        // 加上黑色半透明細邊框，物理隔離背景干擾
+        stroke(0, 0, 0, 0.7);
+        strokeWeight(1.5);
+        fill(currentHue, 100, 100, 1);
+        circle(x, y, 12);
+
+        // 3. 精緻星芒核心仍然保留純白，確保節點中心夠亮
+        noStroke();
+        fill(0, 0, 100, 1);
         beginShape();
         vertex(x, y - 5);
         vertex(x + 2, y - 2);
@@ -329,9 +337,9 @@
         endShape(CLOSE);
 
         if ([4, 8, 12, 16, 20].includes(i)) {
-          fill(0, 0, 100, 0.6);
+          fill(0, 0, 100, 0.8);
           textSize(9);
-          text(`N-${i}`, x + 12, y - 8);
+          text(`N-${i}`, x + 12, y - 10);
         }
         pop();
       }
