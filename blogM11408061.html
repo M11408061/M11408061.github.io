@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【吃貨筆記】深度解鎖台灣美食的美味 DNA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#FF4D4D',
+                            secondary: '#FF9F43',
+                            dark: '#1A1A1A',
+                            accent: '#FFD700',
+                        },
+                        glass: {
+                            bg: 'rgba(255, 255, 255, 0.05)',
+                            border: 'rgba(255, 255, 255, 0.1)',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Outfit', 'Noto Sans TC', 'sans-serif'],
+                        body: ['Noto Sans TC', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f0f0f;
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #FF4D4D, #FF9F43);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .article-shadow {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .hero-overlay {
+            background: linear-gradient(0deg, #0f0f0f 0%, rgba(15, 15, 15, 0.4) 50%, rgba(15, 15, 15, 0.1) 100%);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF4D4D;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-brand-primary selection:text-white">
+
+    <!-- Hero Section -->
+    <header class="relative h-[85vh] w-full overflow-hidden flex items-end">
+        <div class="absolute inset-0 z-0">
+            <img src='https://opal.google/board/blobs/34883218-6655-4b3a-9e1c-394f40af7b89' alt='Taiwanese Cuisine Banner' class="w-full h-full object-cover transform scale-105 hover:scale-100 transition-transform duration-1000" />
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 pb-16 animate-fade-in-up">
+            <div class="max-w-4xl">
+                <span class="inline-block py-1 px-4 rounded-full bg-brand-primary text-white text-sm font-semibold tracking-wider mb-6">M11408061 | 吃貨筆記</span>
+                <h1 class="text-5xl md:text-7xl font-bold font-display leading-tight mb-6">
+                    不只是好吃！<br/>
+                    <span class="gradient-text">解鎖台灣美食的 DNA</span>🍜
+                </h1>
+                <p class="text-xl text-gray-300 max-w-2xl leading-relaxed">
+                    從巷弄小吃到辦桌盛宴，帶你用社會學與歷史學的視角，剖析我們胃裡那段迷人的味覺冒險。
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 -mt-10 relative z-20 pb-24">
+        
+        <!-- Bento Grid Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Sidebar/Info -->
+            <aside class="lg:col-span-4 space-y-8">
+                <div class="glass-card p-8 sticky top-8">
+                    <h3 class="text-2xl font-bold mb-6 border-b border-white/10 pb-4">前言</h3>
+                    <p class="text-gray-400 leading-relaxed italic">
+                        「你吃飽沒？」這大概是台灣人最常掛在嘴邊的問候語了。我們對食物的執著，是一場日復一日的微型慶典。今天，我們不只聊好不好吃，更要切開美食的橫截面。
+                    </p>
+                    <div class="mt-8 p-4 rounded-2xl bg-white/5 border border-white/10">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center text-xl">🍜</div>
+                            <div>
+                                <div class="text-sm text-gray-500">作者學號</div>
+                                <div class="font-bold">M11408061</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Article Body -->
+            <div class="lg:col-span-8 space-y-12">
+                
+                <!-- Section 1 -->
+                <section class="glass-card p-8 md:p-12 transition-all hover:border-brand-primary/30 group">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-4xl">01</span>
+                        <h2 class="text-3xl font-bold">台灣美食圖鑑：我們的胃裡都裝了些什麼？</h2>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="bg-white/5 p-6 rounded-2xl border-l-4 border-brand-primary">
+                            <h4 class="text-xl font-bold mb-3 text-brand-secondary">街頭小吃就是靈魂</h4>
+                            <p class="text-gray-300">珍奶、滷肉飯、蚵仔煎……這些隨處可見的街頭小吃，說穿了就是我們的「國民初戀」。下班後在巷口買的一碗滷肉飯，那種碳水化合物與脂肪完美交融的撫慰感，是米其林三星也難以替代的情感寄託。</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-6 rounded-2xl border border-white/10 hover:bg-white/5 transition-colors">
+                                <h4 class="text-lg font-bold mb-2">熱炒與海鮮</h4>
+                                <p class="text-sm text-gray-400">「火候」是唯一的信仰。矮桌塑膠椅上，社會階級被抹平，吃的是豪邁，更是人與人之間的零距離。</p>
+                            </div>
+                            <div class="p-6 rounded-2xl border border-white/10 hover:bg-white/5 transition-colors">
+                                <h4 class="text-lg font-bold mb-2">辦桌：老派浪漫</h4>
+                                <p class="text-sm text-gray-400">紅蟳米糕、佛跳牆，每一道都是總舖師的「手路菜」。在棚架下流水席的喧鬧，吃進的是深厚人情味。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="glass-card p-8 md:p-12 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-primary/10 blur-3xl rounded-full"></div>
+                    <div class="flex items-center gap-3 mb-8">
+                        <span class="text-4xl">02</span>
+                        <h2 class="text-3xl font-bold">穿越時光機：這碗麵背後的「身世之謎」</h2>
+                    </div>
+                    <div class="grid grid-cols-1 gap-8">
+                        <div class="flex flex-col md:flex-row gap-6 items-start">
+                            <div class="w-full md:w-1/3 p-4 bg-brand-primary/10 rounded-2xl border border-brand-primary/20 text-center">
+                                <span class="text-5xl mb-2 block">🕰️</span>
+                                <h5 class="font-bold">大移民時代</h5>
+                            </div>
+                            <p class="md:w-2/3 text-gray-300 leading-relaxed">
+                                台灣的味覺層次是一層層疊加的。荷蘭人帶來了番茄與辣椒，閩南人貢獻了醬油美學，客家人則分享了醃漬的「鹹、香、肥」智慧。
+                            </p>
+                        </div>
+                        <div class="flex flex-col md:flex-row-reverse gap-6 items-start">
+                            <div class="w-full md:w-1/3 p-4 bg-brand-secondary/10 rounded-2xl border border-brand-secondary/20 text-center">
+                                <span class="text-5xl mb-2 block">🍱</span>
+                                <h5 class="font-bold">日治美學</h5>
+                            </div>
+                            <p class="md:w-2/3 text-gray-300 leading-relaxed">
+                                為什麼我們對便當與生魚片如此狂熱？半世紀的日治時期將現代化衛生觀念與精緻餐盒美學深深植入日常。
+                            </p>
+                        </div>
+                        <div class="mt-4 p-8 bg-gradient-to-br from-brand-primary/20 to-transparent rounded-3xl border border-white/10">
+                            <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
+                                <span class="w-2 h-8 bg-brand-primary rounded-full"></span>
+                                紅燒牛肉麵的「意外產物」
+                            </h4>
+                            <p class="text-gray-300 italic">
+                                1949 年眷村誕生的奇蹟。四川豆瓣醬、廣東煲湯技巧、老兵的鄉愁，揉合成獨一無二的「台式經典」。這碗麵，吃的是顛沛流離的歷史。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3 & 4 (Combined for Layout Interest) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-card p-8">
+                        <h3 class="text-xl font-bold mb-6 text-brand-accent">#美食人設標籤</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="bg-brand-primary/20 p-1 rounded">💰</span>
+                                <div>
+                                    <span class="font-bold block">傳說中的 CP 值</span>
+                                    <span class="text-sm text-gray-400">便宜又大碗是預設，但不代表妥協品質。</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="bg-brand-primary/20 p-1 rounded">🌃</span>
+                                <div>
+                                    <span class="font-bold block">深夜食堂：夜市</span>
+                                    <span class="text-sm text-gray-400">社交、娛樂與食物的複合實驗室。</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="bg-brand-primary/20 p-1 rounded">🔄</span>
+                                <div>
+                                    <span class="font-bold block">什麼都能「台」一下</span>
+                                    <span class="text-sm text-gray-400">強大的包容力，讓異國料理都帶有在地溫度。</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glass-card p-8 bg-brand-primary/5 border-brand-primary/10">
+                        <h3 class="text-xl font-bold mb-6">美食的「愛恨情仇」</h3>
+                        <div class="space-y-4 text-sm">
+                            <p class="p-3 bg-black/30 rounded-lg"><strong>全糖之爭：</strong>台南式的甜蜜 vs 現代減糖焦慮。</p>
+                            <p class="p-3 bg-black/30 rounded-lg"><strong>正宗定義：</strong>珍珠奶茶鼻祖與牛肉麵的身世之戰。</p>
+                            <p class="p-3 bg-black/30 rounded-lg border border-brand-primary/30"><strong>食安門檻：</strong>從單純好看到「溯源透明」的進化。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5 -->
+                <section class="glass-card p-8 md:p-12 border-t-4 border-brand-accent">
+                    <div class="flex items-center gap-3 mb-8">
+                        <span class="text-4xl">05</span>
+                        <h2 class="text-3xl font-bold">未來預演：台灣美食的 72 變</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="group cursor-pointer">
+                            <div class="mb-4 h-1 bg-white/10 group-hover:bg-brand-primary transition-all"></div>
+                            <h4 class="font-bold mb-2 text-brand-primary">精緻化趨勢</h4>
+                            <p class="text-sm text-gray-400">路邊攤穿上西裝，台菜正建立國際高端餐飲標準。</p>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="mb-4 h-1 bg-white/10 group-hover:bg-brand-primary transition-all"></div>
+                            <h4 class="font-bold mb-2 text-brand-primary">綠色冒險</h4>
+                            <p class="text-sm text-gray-400">從產地到餐桌，原生種紅藜、樹豆重新成為明星。</p>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="mb-4 h-1 bg-white/10 group-hover:bg-brand-primary transition-all"></div>
+                            <h4 class="font-bold mb-2 text-brand-primary">科技新時代</h4>
+                            <p class="text-sm text-gray-400">雲端廚房與現代蔬食文化，重新定義「肉」的味道。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conclusion -->
+                <footer class="p-12 rounded-[3rem] bg-gradient-to-br from-brand-primary to-brand-secondary text-white text-center shadow-2xl">
+                    <h2 class="text-4xl font-bold mb-6 italic">下一頓，你想好要去哪裡冒險了嗎？</h2>
+                    <p class="max-w-2xl mx-auto opacity-90 leading-relaxed text-lg">
+                        台灣美食不只是碳水與蛋白質，它是一部可以咀嚼的歷史。下次看著老闆熟練地撈起熱湯時，細細品味這份跨越百年的風味 DNA。
+                    </p>
+                    <div class="mt-8 flex justify-center gap-4">
+                        <button class="px-8 py-3 bg-black text-white rounded-full font-bold hover:bg-white hover:text-black transition-all transform hover:scale-105">
+                            繼續探索
+                        </button>
+                        <button class="px-8 py-3 border-2 border-white/50 rounded-full font-bold hover:bg-white/10 transition-all">
+                            分享筆記
+                        </button>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Decor -->
+    <div class="fixed top-20 left-10 w-24 h-24 bg-brand-primary/20 blur-3xl -z-10 animate-float"></div>
+    <div class="fixed bottom-20 right-10 w-40 h-40 bg-brand-secondary/20 blur-3xl -z-10 animate-float" style="animation-delay: 2s"></div>
+
+</body>
+</html>
+
