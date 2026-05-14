@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手沖咖啡萃取科學與變數優化報告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            200: '#eaddd7',
+                            300: '#e0c1b3',
+                            400: '#d9a380',
+                            500: '#c27e56',
+                            600: '#a3633e',
+                            700: '#854d32',
+                            800: '#6b402c',
+                            900: '#583527',
+                            950: '#2f1a14',
+                        },
+                        accent: '#e11d48', // Red for requested footer style
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'Noto Sans TC', 'sans-serif'],
+                        display: ['Outfit', 'Noto Sans TC', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f0a09;
+            color: #eaddd7;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(47, 26, 20, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(234, 221, 215, 0.1);
+            border-radius: 24px;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #f2e8e5 0%, #d9a380 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 1024px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .bento-grid { grid-template-columns: 1fr; }
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .video-container video {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Hero Section -->
+    <header class="relative min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-20 overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(133,77,50,0.15),transparent_70%)]"></div>
+        <div class="relative z-10">
+            <span class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-widest uppercase border border-coffee-400/30 rounded-full text-coffee-400 bg-coffee-950/50">
+                Scientific Extraction Report
+            </span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text leading-tight">
+                手沖咖啡萃取科學<br><span class="text-3xl md:text-5xl font-light">與變數優化報告</span>
+            </h1>
+            <div class="flex items-center justify-center gap-4 text-coffee-200/80">
+                <span class="px-3 py-1 bg-coffee-800/40 rounded-md">學號：M11408061</span>
+                <span class="w-1 h-1 bg-coffee-500 rounded-full"></span>
+                <span>2026 最新綜述</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 space-y-32 pb-32">
+        
+        <!-- SECTION 1: Infographic (Top) -->
+        <section id="infographic" class="scroll-reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">科學數據可視化</h2>
+                <div class="h-1 w-20 bg-coffee-500 mx-auto rounded-full"></div>
+                <p class="mt-4 text-coffee-300/70">根據手沖咖啡萃取科學報告製作的資訊圖表</p>
+            </div>
+            <div class="glass-card p-4 md:p-8 overflow-hidden group">
+                <img src='https://opal.google/board/blobs/777df226-1455-4d8b-bd25-a96b95072f03' alt='手沖咖啡萃取科學資訊圖表' class="w-full h-auto rounded-xl shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]" />
+            </div>
+        </section>
+
+        <!-- SECTION 2: Short Video & Summary (Middle) -->
+        <section id="media-center" class="scroll-reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1 space-y-6">
+                    <h2 class="text-3xl font-bold gradient-text">萃取核心摘要</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 p-4 glass-card hover:bg-coffee-800/30 transition-colors">
+                            <span class="bg-coffee-500 text-coffee-950 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</span>
+                            <p><strong class="text-coffee-100">萃取核心：</strong> EY 應維持在 18%–22%，TDS 濃度應在 1.15%–1.35%。</p>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 glass-card hover:bg-coffee-800/30 transition-colors">
+                            <span class="bg-coffee-500 text-coffee-950 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</span>
+                            <p><strong class="text-coffee-100">水溫迷思：</strong> 水溫改變化學反應速率，應配合烘焙程度而非盲目追求高溫。</p>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 glass-card hover:bg-coffee-800/30 transition-colors">
+                            <span class="bg-coffee-500 text-coffee-950 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</span>
+                            <p><strong class="text-coffee-100">研磨度悖論：</strong> 過細易引發通道效應 (Channeling)，導致萃取不均。</p>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 glass-card hover:bg-coffee-800/30 transition-colors">
+                            <span class="bg-coffee-500 text-coffee-950 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</span>
+                            <p><strong class="text-coffee-100">水質化學：</strong> 鎂、鈣離子決定風味汲取，碳酸鹽硬度影響酸質緩衝。</p>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 glass-card hover:bg-coffee-800/30 transition-colors">
+                            <span class="bg-coffee-500 text-coffee-950 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</span>
+                            <p><strong class="text-coffee-100">AI 優化：</strong> 利用強化學習 (RL) 解決多變數耦合，達成風味高度重現。</p>
+                        </li>
+                    </ul>
+                    <div class="pt-6">
+                        <div class="glass-card p-6 flex flex-col sm:flex-row items-center gap-6">
+                            <div class="text-coffee-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                                </svg>
+                            </div>
+                            <div class="flex-grow w-full">
+                                <p class="text-xs text-coffee-400 mb-2 uppercase tracking-tighter">Audio Insight / 專家音訊</p>
+                                <audio controls class="w-full h-10 accent-coffee-500">
+                                    <source src="https://opal.google/board/blobs/97ab636f-f886-4f98-a0d5-751f75c90c52" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="video-container relative">
+                        <div class="absolute -inset-4 bg-coffee-500/10 blur-3xl rounded-full"></div>
+                        <video src='https://opal.google/board/blobs/c5df0361-b2ce-4d40-8d71-809b3300f0ef' alt='media_1' controls class="relative z-10"></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Detailed Report (Bottom) -->
+        <section id="full-report" class="scroll-reveal">
+            <div class="glass-card p-8 md:p-16 relative overflow-hidden">
+                <!-- Background decorative text -->
+                <div class="absolute top-0 right-0 opacity-[0.03] text-[15rem] font-bold pointer-events-none select-none translate-x-1/4 -translate-y-1/4">COFFEE</div>
+                
+                <div class="max-w-4xl mx-auto space-y-12 relative z-10">
+                    <div class="border-l-4 border-coffee-500 pl-6">
+                        <h2 class="text-4xl font-bold mb-4">手沖咖啡萃取科學研究報告</h2>
+                        <p class="text-coffee-300 italic">2025-2026 學術綜述系列</p>
+                    </div>
+
+                    <article class="prose prose-invert prose-coffee max-w-none space-y-8 text-coffee-200/90 leading-relaxed">
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold text-coffee-100 flex items-center gap-3">
+                                <span class="text-coffee-500">I.</span> 前言
+                            </h3>
+                            <p>手沖咖啡 (Pour-over Coffee) 是一種結合精密物理與複雜化學的精密萃取過程。與自動化儀器不同，其各項萃取變數 (Brewing Variables) 的細微調整都會對杯中風味產生顯著影響。本報告旨在整理近年（至 2026 年）之學術研究成果與專業綜述報告，探討各項參數如何共同決定一杯高品質咖啡的產生。</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold text-coffee-100 flex items-center gap-3">
+                                <span class="text-coffee-500">II.</span> 萃取理論之精密化
+                            </h3>
+                            <p>根據精品咖啡協會 (SCA) 的標準，咖啡沖煮控制圖 (Brewing Control Chart) 是判定品質的重要基石。現代科學透過質譜儀分析發現，萃取過程具有階段性：有機酸與揮發性花果香氣先行釋出，隨後是糖類帶來的甜感與焦糖化產物帶來的稠度（Body），最後才是多酚類大分子產生的苦澀。因此，如何精準控制萃取進度，避開後段的過度萃取，是所有科學化手沖的核心目標。</p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <h3 class="text-2xl font-semibold text-coffee-100 flex items-center gap-3">
+                                <span class="text-coffee-500">III.</span> 關鍵變數之深度分析
+                            </h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-coffee-900/40 p-6 rounded-2xl border border-coffee-800/50">
+                                    <h4 class="text-lg font-bold text-coffee-300 mb-3">1. 水溫與熱動力學</h4>
+                                    <p class="text-sm">傳統教學強調高溫會導致苦澀。然而，UC Davis 在 2020 年的研究指出，溫度對風味感知的直接貢獻常被高估。水溫的最佳化應視為「能量管理」，對於淺焙咖啡豆，92°C-96°C 是驅動難溶香氣分子的必要條件。</p>
+                                </div>
+                                <div class="bg-coffee-900/40 p-6 rounded-2xl border border-coffee-800/50">
+                                    <h4 class="text-lg font-bold text-coffee-300 mb-3">2. 研磨度與流體力學</h4>
+                                    <p class="text-sm">2020 與 2025 年模擬數據推翻了「粉越細越濃」的簡單概念。過細的研磨會引發通道效應 (Channeling)，水流集中於特定路徑高速通過，造成苦味洗出而大部分粉末萃取不足。</p>
+                                </div>
+                                <div class="bg-coffee-900/40 p-6 rounded-2xl border border-coffee-800/50">
+                                    <h4 class="text-lg font-bold text-coffee-300 mb-3">3. 擾動與流速控制</h4>
+                                    <p class="text-sm">使用細口長頸壺 (Gooseneck Kettle) 可以精確控制流量。分段注水（Pulse Pouring）策略不僅能延長水粉接觸時間，更有助於重整粉餅構造，使杯中風味層次感更加分明。</p>
+                                </div>
+                                <div class="bg-coffee-900/40 p-6 rounded-2xl border border-coffee-800/50">
+                                    <h4 class="text-lg font-bold text-coffee-300 mb-3">4. 水質之化學角色</h4>
+                                    <p class="text-sm">水中的鎂、鈣離子與極性風味分子具有強大的鍵結能力。而緩衝鹼度 (Alkalinity) 若過高，則會中和咖啡中的有機酸，使風味顯得平淡乏味。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold text-coffee-100 flex items-center gap-3">
+                                <span class="text-coffee-500">IV.</span> 未來趨勢：數據化與自動化
+                            </h3>
+                            <p>在 2025 年及 2026 年的綜述中，穿戴式感測器與咖啡秤的結合，搭配機器學習模型，已能即時預測沖煮結果。尤其是利用強化學習演算法來動態調整手沖變數，讓專業咖啡師能更輕鬆地維持風味的重現性 (Reproducibility)。</p>
+                        </div>
+
+                        <div class="bg-coffee-500/10 border border-coffee-500/20 p-8 rounded-3xl mt-12">
+                            <h3 class="text-xl font-bold text-coffee-100 mb-4">簡要結論</h3>
+                            <p class="text-coffee-200">手沖咖啡萃取是一門精密的科學。成功的關鍵在於「單一變數控制」與對「多感官回饋」的科學解構。未來的趨勢將從單純的手感技術，轉向深度的水質化學管理、精確的流體力學應用，並可能導入 AI 輔助系統來降低人為操作之不確定性。</p>
+                        </div>
+                    </article>
+
+                    <div class="pt-12 border-t border-coffee-800/50">
+                        <h4 class="text-sm font-bold text-coffee-400 uppercase tracking-widest mb-6">參考文獻 References</h4>
+                        <ol class="text-xs text-coffee-400/80 space-y-2 list-decimal ml-4">
+                            <li>SCA (Specialty Coffee Association). <em>Brewing Control Chart and Quality Standards</em>.</li>
+                            <li>Batali, M. E., Ristenpart, W. D., & Guinard, J. X. (2020). <em>Impact of Brewing Temperature on the Sensory Profile of Drip Brewed Coffee</em>.</li>
+                            <li>Cameron, M. J., et al. (2020). <em>Systematically Improving Espresso: Insights from Mathematical Modeling and Experiment</em>.</li>
+                            <li>Hendon, C. H., Colonna-Dashwood, L., & Nelson, A. (2014). <em>The Role of Dissolved Cations in Coffee Extraction</em>.</li>
+                            <li><em>Machine Learning Assisted Optimization of Pour-over Coffee Parameters</em> (2025). <em>PeerJ / Journal of Food Engineering</em>.</li>
+                            <li>University of Pennsylvania Department of Physics. (2025). <em>Fluid Dynamics in Manual Drip Coffee Brewing</em>.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section (Theme Exploration) -->
+        <div class="flex flex-col items-center justify-center pt-20">
+            <div class="w-full max-w-xs h-px bg-gradient-to-r from-transparent via-coffee-500 to-transparent mb-8 opacity-30"></div>
+            <div class="text-lg text-coffee-300/80">
+                【主題探索報告】by <span class="italic font-bold text-accent">Famidoc Chang</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
