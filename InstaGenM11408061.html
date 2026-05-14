@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Studio | Instagram Post Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            offwhite: '#F9FAFB',
+                            charcoal: '#111827',
+                            slate: '#6B7280',
+                            border: '#E5E7EB',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                        display: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9FAFB;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .aspect-square {
+            aspect-ratio: 1 / 1;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E5E7EB;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 md:p-12 font-sans text-brand-charcoal">
+
+    <main class="w-full max-w-6xl opacity-0 animate-fade-in-up">
+        <!-- Main Post Card -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-brand-border flex flex-col md:flex-row">
+            
+            <!-- Visual Section (Left/Top) -->
+            <div class="w-full md:w-1/2 p-6 md:p-8 bg-brand-offwhite flex items-center justify-center">
+                <div class="relative w-full aspect-square group">
+                    <!-- Image Wrapper with subtle shadow and border -->
+                    <div class="w-full h-full rounded-2xl overflow-hidden border border-brand-border shadow-sm transition-transform duration-500 group-hover:scale-[1.01]">
+                        <img src='https://opal.google/board/blobs/6f6055d2-e82a-4387-b6da-cb0d857905eb' alt='Harajuku Street Fashion' />
+                    </div>
+                    <!-- Decorative Element -->
+                    <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-white/50 backdrop-blur-md rounded-full flex items-center justify-center border border-brand-border md:hidden">
+                        <svg class="w-6 h-6 text-brand-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Section (Right/Bottom) -->
+            <div class="w-full md:w-1/2 flex flex-col h-auto md:h-[calc(100vh-160px)] max-h-[800px]">
+                <!-- Header -->
+                <div class="px-8 pt-8 pb-4 flex items-center justify-between border-b border-brand-border/50">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-charcoal flex items-center justify-center text-white text-xs font-bold tracking-tighter">
+                            CS
+                        </div>
+                        <div>
+                            <h2 class="text-sm font-bold tracking-[0.15em] uppercase text-brand-charcoal">M11408061</h2>
+                            <p class="text-[10px] text-brand-slate uppercase tracking-widest">Creative Studio Serial</p>
+                        </div>
+                    </div>
+                    <button class="text-brand-slate hover:text-brand-charcoal transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Body (Caption Box) -->
+                <div class="flex-grow px-8 py-6 overflow-y-auto custom-scrollbar">
+                    <div class="space-y-4">
+                        <p class="text-brand-charcoal leading-relaxed text-lg font-medium tracking-tight">
+                            最新日本流行快報！從原宿街頭的銀色系配件到社群上瘋傳的 Y2K 復古工裝風，東京的流行趨勢總是引領潮流。
+                        </p>
+                        <p class="text-brand-slate leading-relaxed font-light">
+                            現在最夯的莫過於將甜美蕾絲與硬核機能服飾混搭，展現出平衡的空靈與個性。如果你也想走在潮流尖端，別忘了加入一點金屬質感或是復古數位配件，打造出屬於你的日系氛圍感。
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-4">
+                            <span class="text-brand-charcoal/60 text-sm font-semibold hover:text-brand-charcoal transition-colors cursor-pointer">#日本流行</span>
+                            <span class="text-brand-charcoal/60 text-sm font-semibold hover:text-brand-charcoal transition-colors cursor-pointer">#東京時尚</span>
+                            <span class="text-brand-charcoal/60 text-sm font-semibold hover:text-brand-charcoal transition-colors cursor-pointer">#穿搭指南</span>
+                            <span class="text-brand-charcoal/60 text-sm font-semibold hover:text-brand-charcoal transition-colors cursor-pointer">#M11408061</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interaction Footer -->
+                <div class="px-8 py-6 bg-brand-offwhite/30 border-t border-brand-border space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex space-x-5">
+                            <button class="hover:scale-110 transition-transform"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></button>
+                            <button class="hover:scale-110 transition-transform"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></button>
+                            <button class="hover:scale-110 transition-transform"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg></button>
+                        </div>
+                        <button class="hover:scale-110 transition-transform"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg></button>
+                    </div>
+                    
+                    <button id="copyBtn" class="w-full py-3 bg-brand-charcoal text-white rounded-xl font-semibold text-sm hover:bg-black transition-all active:scale-[0.98] flex items-center justify-center space-x-2">
+                        <span id="btnText">Copy Caption</span>
+                        <svg id="copyIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meta Information (Out of card) -->
+        <div class="mt-8 flex flex-col md:flex-row justify-between items-center text-[10px] tracking-[0.2em] text-brand-slate uppercase font-medium">
+            <div class="mb-4 md:mb-0">Archive Reference: //TOKYO-HAR-2024</div>
+            <div class="flex space-x-8">
+                <a href="https://google.com" target="_blank" class="hover:text-brand-charcoal transition-colors">Documentation</a>
+                <a href="https://wikipedia.org" target="_blank" class="hover:text-brand-charcoal transition-colors">Trend Report</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Interactive "Copy Caption" Logic
+        const copyBtn = document.getElementById('copyBtn');
+        const btnText = document.getElementById('btnText');
+        const caption = `最新日本流行快報！從原宿街頭的銀色系配件到社群上瘋傳的 Y2K 復古工裝風，東京的流行趨勢總是引領潮流。現在最夯的莫過於將甜美蕾絲與硬核機能服飾混搭，展現出平衡的空靈與個性。如果你也想走在潮流尖端，別忘了加入一點金屬質感或是復古數位配件，打造出屬於你的日系氛圍感。 #日本流行 #東京時尚 #穿搭指南 #M11408061`;
+
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(caption).then(() => {
+                const originalText = btnText.innerText;
+                btnText.innerText = 'Copied to Clipboard!';
+                copyBtn.classList.remove('bg-brand-charcoal');
+                copyBtn.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    btnText.innerText = originalText;
+                    copyBtn.classList.add('bg-brand-charcoal');
+                    copyBtn.classList.remove('bg-green-600');
+                }, 2000);
+            });
+        });
+
+        // Entrance animation adjustment for mobile smooth loading
+        window.addEventListener('load', () => {
+            document.querySelector('main').classList.remove('opacity-0');
+        });
+    </script>
+</body>
+</html>
